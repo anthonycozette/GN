@@ -16,7 +16,7 @@ class Evenement1Type extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('prix')
-            ->add('updatedAt')
+            ->remove('updatedAt')
             ->add('imageFile', FileType::class, ["required"=>false])
             ->remove('imageName')
             ->remove('imageSize')

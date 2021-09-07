@@ -7,10 +7,11 @@
         <title>
             {% block title %}
                 Welcome!
-                            
             {% endblock %}
         </title>
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/admin.min.css') }}">
         {% block stylesheets %}{% endblock %}
 
     </head>
@@ -22,6 +23,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     Navbar
+                                    
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,44 +33,65 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 Acceuil
+                                                            
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 Presentation du jeux GN
+                                                            
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ path('evenement') }}">
                                 Calendrier des jeux
+                                                            
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 Creation Evenement
+                                                            
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Connection/Inscription
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Another action
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">
-                                        Something else here
-                                    </a>
-                                </li>
-                            </ul>
+                        {# <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Connection/Inscription
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                        <li>
+                                                            <a class="dropdown-item" href="#">
+                                                                Action
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item" href="#">
+                                                                Another action
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item" href="#">
+                                                                Something else here
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li> #}
+                        <li class="nav-item d-flex align-items-center">
+                            {% if is_granted('ROLE_USER') %}
+                                <span>
+                                    Bienvenue 
+                                    {{ app.user.email }}
+                                </span>
+                                <a class="nav-link" href="{{ path('app_logout') }}">
+                                    Deconnexion
+                                                                    
+                                </a>
+                            {% else %}
+                                <a class="nav-link" href="{{ path('app_login') }}">
+                                    Connexion
+                                                                    
+                                </a>
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -90,27 +113,32 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase">
                             Links
+                                                    
                         </h5>
 
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 1
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 2
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 3
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 4
+                                                                    
                                 </a>
                             </li>
                         </ul>
@@ -121,27 +149,32 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase mb-0">
                             Links
+                                                    
                         </h5>
 
                         <ul class="list-unstyled">
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 1
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 2
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 3
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 4
+                                                                    
                                 </a>
                             </li>
                         </ul>
@@ -152,27 +185,32 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase">
                             Links
+                                                    
                         </h5>
 
                         <ul class="list-unstyled mb-0">
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 1
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 2
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 3
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 4
+                                                                    
                                 </a>
                             </li>
                         </ul>
@@ -183,27 +221,32 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase mb-0">
                             Links
+                                                    
                         </h5>
 
                         <ul class="list-unstyled">
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 1
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 2
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 3
+                                                                    
                                 </a>
                             </li>
                             <li>
                                 <a href="#!" class="text-dark">
                                     Link 4
+                                                                    
                                 </a>
                             </li>
                         </ul>
@@ -217,8 +260,10 @@
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 © 2020 Copyright:
+                                
                 <a class="text-dark" href="https://mdbootstrap.com/">
                     MDBootstrap.com
+                                    
                 </a>
             </div>
         <!-- Copyright -->
