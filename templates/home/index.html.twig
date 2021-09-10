@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<h1>
+    {% if homeContent.titre is defined and homeContent.titre is not null %}
+        {{ homeContent.titre }}
+    {% endif %}
+</h1>
+<p>
+    {% if homeContent.presentation is defined and homeContent.presentation is not null %}
+        {{ homeContent.presentation }}
+    {% endif %}
+</p>
+
+<hr>
+<h2>
+    Nos dernier evenement
+</h2>
+{# <div class="row">
+    {% for evenement in evenements %}
+        <div class="col-6 col-md-3">
+            <img src="{{ asset('images/evenements/' ~ evenement.imageName) }}" alt="" class="img-fluid">
+        </div>
+        {% endfor %}
+</div> #}
+{% endblock %}

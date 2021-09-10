@@ -19,6 +19,7 @@ class EvenementsFixtures extends Fixture
         $evenement->setPrix(60);
         $evenement->setImageName("th (1).jpg");
         $evenement->setUpdatedAt($date);
+        $manager->persist($evenement);
 
         $manager->flush();
     }
