@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Hello ProfileController!
+{% endblock %}
+
+{% block body %}
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                Mes information
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="evenement-tab" data-bs-toggle="tab" data-bs-target="#evenement" type="button" role="tab" aria-controls="evenement" aria-selected="false">
+                Mes evenements
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="vente-tab" data-bs-toggle="tab" data-bs-target="#vente" type="button" role="tab" aria-controls="vente" aria-selected="false">
+                Mes ventes
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-success mt-3" type="submit">
+            Modifier
+        </button>
+        {{ form_end(form) }}
+        </div>
+        <div class="tab-pane fade" id="evenement" role="tabpanel" aria-labelledby="evenement-tab">
+            ...
+        </div>
+        <div class="tab-pane fade" id="vente" role="tabpanel" aria-labelledby="vente-tab">
+            ...
+        </div>
+    </div>
+{% endblock %}
+

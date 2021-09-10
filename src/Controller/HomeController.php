@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     public function index(HomeRepository $homeRepository, EvenementRepository $evenementRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'homeContent' => $homeRepository->findAll(),
+            'homeContent' => $homeRepository->findOneBy(['active'=>true]),
             'evenement' => $evenementRepository->findBy([],["updatedAt"=>"DESC"],2)
         ]);
     }

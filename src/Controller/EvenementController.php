@@ -21,7 +21,7 @@ class EvenementController extends AbstractController
     // #[Route('/evenement/{slug}', name: 'evenement')]
     // public function detail(evenementRepository $evenementRepository, int $slug): Response
     // {
-    //     return $this->render('livre/detail.html.twig', [
+    //     return $this->render('evenement/detail.html.twig', [
     //         "evenement" => $evenementRepository->find($slug),
     //     ]);
     // }

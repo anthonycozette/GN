@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Home;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class HomeType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('presentation')
+            ->add('presentation', CKEditorType::class)
         ;
     }
 

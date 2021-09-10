@@ -3,18 +3,21 @@
 {% block title %}Hello EvenementController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1>
+    Nos evenements:
+</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi officia, nobis odit ad inventore consequatur doloremque cumque, voluptatum, nulla possimus. Qui laborum ad a neque vel explicabo. Porro sunt laborum magnam quam eum alias, at est, expedita provident aspernatur, eos rem asperiores! Molestiae, commodi nobis? Adipisci molestiae omnis, ea consectetur a odit ipsa! Labore hic voluptatibus culpa sed ipsum neque adipisci. Tempora nihil at itaque quidem magnam eum asperiores in quis nemo nostrum saepe sit animi ipsum, quo officia!
+</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/mon projet/site GN/GN/src/Controller/EvenementController.php'|file_link(0) }}">src/Controller/EvenementController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/mon projet/site GN/GN/templates/evenement/index.html.twig'|file_link(0) }}">templates/evenement/index.html.twig</a></code></li>
-    </ul>
-</div>
+<hr>
+
+    {% for evenement in evenements %}
+
+        <p>
+        <a href="{{ path('evenement', { id: evenement.id }) }}">View</a>
+        </p>
+     {% endfor %}
+
 {% endblock %}

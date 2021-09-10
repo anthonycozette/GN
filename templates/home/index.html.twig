@@ -18,11 +18,10 @@
 <h2>
     Nos dernier evenement
 </h2>
-{# <div class="row">
-    {% for evenement in evenements %}
-        <div class="col-6 col-md-3">
-            <img src="{{ asset('images/evenements/' ~ evenement.imageName) }}" alt="" class="img-fluid">
-        </div>
-        {% endfor %}
-</div> #}
+{% for evenement in evenements %}
+         <h4>{{ evenement }}</h4>
+         <p>
+           <a href="{{ path('evenement', { id: evenement.id }) }}">View</a>
+         </p>
+     {% endfor %}
 {% endblock %}
