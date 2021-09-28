@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'homeContent' => $homeRepository->findOneBy(['active'=>true]),
-            'evenement' => $evenementRepository->findBy([],["updatedAt"=>"DESC"],2)
+            'evenements' => $evenementRepository->findBy([],["updatedAt"=>"DESC"],2)
         ]);
     }
 }

@@ -32,6 +32,7 @@ class UserFixtures extends Fixture
         $encodePassword = $this->encoder->hashPassword($user, $plainPassword); // on encode le password avec l'encoder memoriser lors de l'injection dans le constructeur
         $user->setPassword($encodePassword); // on renseigne la propriete password de l'utilisateur avec le setter
         $user->setRoles(["ROLE_USER", "ROLE_ADMIN"]); // on affecte un role a l'utilisateur
+        $user->setIsVerified(1);
         // on memorise l'instance d'utilisateur afin de l'ajouter ulterieurement dans la base de donnees
         $manager->persist($user);
 
@@ -42,6 +43,7 @@ class UserFixtures extends Fixture
         $encodePassword = $this->encoder->hashPassword($user, $plainPassword);
         $user->setPassword($encodePassword);
         $user->setRoles(["ROLE_USER"]);
+        $user->setIsVerified(1);
         $manager->persist($user);
 
         $manager->flush();

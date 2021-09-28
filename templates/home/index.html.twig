@@ -1,27 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}
+    Hello HomeController!
+{% endblock %}
 
 {% block body %}
-<h1>
-    {% if homeContent.titre is defined and homeContent.titre is not null %}
-        {{ homeContent.titre }}
-    {% endif %}
-</h1>
-<p>
-    {% if homeContent.presentation is defined and homeContent.presentation is not null %}
-        {{ homeContent.presentation }}
-    {% endif %}
-</p>
+    <h1>
+        {% if homeContent.titre is defined and homeContent.titre is not null %}
+            {{ homeContent.titre }}
+        {% endif %}
+    </h1>
+    <p>
+        {% if homeContent.presentation is defined and homeContent.presentation is not null %}
+            {{ homeContent.presentation }}
+        {% endif %}
+    </p>
 
-<hr>
-<h2>
-    Nos dernier evenement
-</h2>
-{% for evenement in evenements %}
-         <h4>{{ evenement }}</h4>
-         <p>
-           <a href="{{ path('evenement', { id: evenement.id }) }}">View</a>
-         </p>
-     {% endfor %}
-{% endblock %}
+    <hr>
+        <h2>
+            Nos dernier evenement
+        </h2>
+        {% for evenement in evenements %}
+
+            <div class="row mt-4">
+
+                <div class="col-3">
+                    <img src="{{ asset(" images/evenements/" ~ evenement.imageName) }}" alt=""></div>
+
+                    <div class="col-6">
+                        <div class="text-center">
+                            {{ evenement.nom }}
+                        </div>
+                        <div>
+                            {{ evenement.description }}
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div>
+                            {{ evenement.updatedAt ? evenement.updatedAt|date('d-m-Y') : '' }}
+                        </div>
+                        <div>
+                            {{ evenement.adresse }}
+                        </div>
+                        <div>
+                            {{ evenement.codePostal }}
+                        </div>
+                        <div>
+                            {{ evenement.ville }}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ path('evenement-detail', { 'slug' : evenement.id }) }}">
+                        detail
+                    </a>
+                </div>
+            {% endfor %}
+
+        {% endblock %}
+        

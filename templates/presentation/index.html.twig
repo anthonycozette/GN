@@ -1,7 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}presentation jeux GN{% endblock %}
+{% block title %}
+    presentation jeux GN
+{% endblock %}
 
 {% block body %}
+    {% for presentation in presentations %}
+        <h1>
+            {{ presentation.titre }}
+        </h1>
 
+        <p>
+            {{ presentation.description }}
+        </P>
+    {% endfor %}
 {% endblock %}
