@@ -27,6 +27,7 @@ class UserFixtures extends Fixture
         $user = new User();
         // on renseigne la propriete email a l'aide du setter
         $user->setEmail('admin@admin.com');
+        $user->setPseudo('cocobico');
         // gestion du mot de passe
         $plainPassword = "pass"; // le mot de passe en clair que l'on veut encoder
         $encodePassword = $this->encoder->hashPassword($user, $plainPassword); // on encode le password avec l'encoder memoriser lors de l'injection dans le constructeur
@@ -38,6 +39,7 @@ class UserFixtures extends Fixture
 
         //SIMPLE USER
         $user = new User();
+        $user->setPseudo('coco');
         $user->setEmail('user@user.com');
         $plainPassword = "pass";
         $encodePassword = $this->encoder->hashPassword($user, $plainPassword);

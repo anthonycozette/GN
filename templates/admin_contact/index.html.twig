@@ -1,0 +1,55 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}
+    Message de contact
+{% endblock %}
+
+{% block body %}
+    <h2>
+        Les messages
+    </h2>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Sujet
+                </th>
+                <th>
+                    Message
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for contact in contacts %}
+
+                <tr>
+                    <td>
+                        {{ contact.email }}
+                    </td>
+                    <td>
+                        {{ contact.sujet }}
+                    </td>
+                    <td>
+                        {{ contact.message|raw }}
+                    </td>
+                    <td>
+                        <a href="{{ path('delete-contact', {'id' : contact.id}) }}" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    {% endblock %}
+    
